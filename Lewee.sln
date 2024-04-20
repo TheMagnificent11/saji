@@ -69,6 +69,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Pizzeria.Client", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Pizzeria", "sample\Sample.Pizzeria\Sample.Pizzeria.csproj", "{381A5DB3-76D7-4E67-9920-EE50B4808DE6}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lewee.Auth.Domain", "src\Lewee.Auth.Domain\Lewee.Auth.Domain.csproj", "{D0DF4622-B0F6-4E91-92C5-95AEA9DE980D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -183,6 +185,10 @@ Global
 		{381A5DB3-76D7-4E67-9920-EE50B4808DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{381A5DB3-76D7-4E67-9920-EE50B4808DE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{381A5DB3-76D7-4E67-9920-EE50B4808DE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0DF4622-B0F6-4E91-92C5-95AEA9DE980D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0DF4622-B0F6-4E91-92C5-95AEA9DE980D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0DF4622-B0F6-4E91-92C5-95AEA9DE980D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0DF4622-B0F6-4E91-92C5-95AEA9DE980D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

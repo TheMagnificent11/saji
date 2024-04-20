@@ -6,6 +6,8 @@
   <ItemGroup>
     <PackageVersion Include="Ardalis.Specification" Version="8.0.0" />
     <PackageVersion Include="Ardalis.Specification.EntityFrameworkCore" Version="8.0.0" />
+    <PackageVersion Include="Aspire.Hosting.AppHost" Version="8.0.0-preview.5.24201.12"/>
+    <PackageVersion Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0-preview.5.24201.12" />
     <PackageVersion Include="Correlate.AspNetCore" Version="5.2.0" />
     <PackageVersion Include="Correlate.DependencyInjection" Version="5.2.0" />
     <PackageVersion Include="coverlet.collector" Version="6.0.0" />

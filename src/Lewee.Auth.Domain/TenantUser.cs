@@ -13,6 +13,7 @@ public class TenantUser : Entity
     /// <param name="tenant">Tenant</param>
     /// <param name="user">User</param>
     public TenantUser(Tenant tenant, User user)
+        : base()
     {
         this.Tenant = tenant;
         this.User = user;
@@ -52,6 +53,11 @@ public class TenantUser : Entity
     /// Gets or sets the end date time.
     /// </summary>
     public DateTime? EndDateTimeUtd { get; protected set; }
+
+    /// <summary>
+    /// Gets a value indicating whether the tenant membership is active.
+    /// </summary>
+    public bool IsActive => !this.EndDateTimeUtd.HasValue;
 
     /// <summary>
     /// Ends the tenant membership.

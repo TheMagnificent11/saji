@@ -3,17 +3,18 @@
 namespace Lewee.Auth.Domain;
 
 /// <summary>
-/// User Role
+/// Tenant User Role
 /// </summary>
-public class UserRole : Entity
+public class TenantUserRole : Entity
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="UserRole"/> class.
+    /// Initializes a new instance of the <see cref="TenantUserRole"/> class.
     /// </summary>
     /// <param name="tenant">Tenant</param>
     /// <param name="user">User</param>
     /// <param name="role">Role</param>
-    public UserRole(Tenant tenant, User user, Role role)
+    public TenantUserRole(Tenant tenant, User user, Role role)
+        : base()
     {
         this.Tenant = tenant;
         this.User = user;

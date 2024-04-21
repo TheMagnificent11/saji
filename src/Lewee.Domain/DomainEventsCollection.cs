@@ -5,7 +5,7 @@
 /// </summary>
 public class DomainEventsCollection
 {
-    private readonly List<DomainEvent> domainEvents = new();
+    private readonly List<DomainEvent> domainEvents = [];
     private readonly object syncLock = new();
 
     /// <summary>

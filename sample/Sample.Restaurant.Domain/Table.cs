@@ -4,7 +4,7 @@ namespace Sample.Restaurant.Domain;
 
 public class Table : AggregateRoot
 {
-    private readonly List<Order> orders = new();
+    private readonly List<Order> orders = [];
 
     public Table(Guid id, int tableNumber)
         : base(id)
@@ -97,7 +97,7 @@ public class Table : AggregateRoot
         var tableNumber = 1;
         ids.ForEach(x => data.Add(new Table(x, tableNumber++)));
 
-        return data.ToArray();
+        return [.. data];
     }
 
     public static class ErrorMessages

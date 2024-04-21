@@ -16,6 +16,15 @@ public abstract class DomainEvent : INotification
     }
 
     /// <summary>
+    /// Initializes a new instance of the <see cref="DomainEvent"/> class.
+    /// </summary>
+    /// <param name="correlationId">Correlation ID</param>
+    protected DomainEvent(Guid correlationId)
+    {
+        this.CorrelationId = correlationId;
+    }
+
+    /// <summary>
     /// Gets or sets the correlation ID of the event
     /// </summary>
     public Guid CorrelationId { get; protected set; }

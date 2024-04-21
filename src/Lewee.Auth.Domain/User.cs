@@ -8,6 +8,16 @@ namespace Lewee.Auth.Domain;
 public class User : Entity
 {
     /// <summary>
+    /// Initializes a new instance of the <see cref="User"/> class.
+    /// </summary>
+    /// <param name="identityId">Identity ID</param>
+    public User(string identityId)
+        : base()
+    {
+        this.IdentityId = identityId;
+    }
+
+    /// <summary>
     /// Gets or sets the user ID from the identity provider.
     /// </summary>
     public string IdentityId { get; protected set; }

@@ -13,6 +13,7 @@ public class Role : Entity
     /// <param name="name">Name</param>
     /// <param name="description">Description</param>
     public Role(string name, string? description = null)
+        : base()
     {
         this.Name = name;
         this.Description = description;

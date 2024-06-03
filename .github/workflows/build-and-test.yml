@@ -26,11 +26,11 @@ jobs:
           --health-start-period 20s
           --health-retries 3
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 7.0.*
       - name: Install GitVersion
@@ -45,11 +45,11 @@ jobs:
         with:
           useConfigFile: true
       - name: Install Dependencies
-        run: dotnet restore ./ci.sln --nologo
+        run: dotnet restore ./Lewee.sln --nologo
       - name: Build
-        run: dotnet build ./ci.sln --configuration Release --no-restore --nologo
+        run: dotnet build ./Lewee.sln --configuration Release --no-restore --nologo
       - name: Test
-        run: dotnet test ./ci.sln --configuration Release --no-build --nologo --settings coverage.runsettings --results-directory ./coverage
+        run: dotnet test ./Lewee.sln --configuration Release --no-build --nologo --settings coverage.runsettings --results-directory ./coverage
       - name: Code Coverage Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         if: ${{ inputs.is-pr == true }}
@@ -61,14 +61,16 @@ jobs:
           hide_complexity: false
           indicators: true
           output: both
-      - name: Add Coverage PR Comment
-        uses: marocchino/sticky-pull-request-comment@v2
-        if: ${{ inputs.is-pr == true }}
-        with:
-          recreate: true
-          path: code-coverage-results.md
+          
+      #- name: Add Coverage PR Comment
+      #  uses: marocchino/sticky-pull-request-comment@v2
+      #  if: ${{ inputs.is-pr == true }}
+      #  with:
+      #    recreate: true
+      #    path: code-coverage-results.md
+          
       - name: Pack
-        run: dotnet pack ./pack.sln --configuration Release --nologo /p:PackageVersion=${{ steps.version.outputs.fullSemVer }} --output ./output
+        run: dotnet pack ./Lewee.sln --configuration Release --nologo /p:PackageVersion=${{ steps.version.outputs.fullSemVer }} --output ./output
       - name: Publish to NuGet
         run: dotnet nuget push ./output/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
         if: github.ref == 'refs/heads/main'

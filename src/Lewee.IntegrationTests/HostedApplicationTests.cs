@@ -12,29 +12,27 @@ namespace Lewee.IntegrationTests;
 /// <summary>
 /// Hosted Application Tests
 /// </summary>
-public abstract class HostedApplicationTests : IClassFixture<TestHost>, IDisposable
+public abstract class HostedApplicationTests : IAsyncLifetime
 {
-    private readonly TestHost testHost;
+    private TestHost testHost;
 
-    private bool disposedValue;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="HostedApplicationTests"/> class
-    /// </summary>
-    protected HostedApplicationTests()
+    /// <inheritdoc />
+    public Task InitializeAsync()
     {
         this.testHost = new TestHost(
             this.SetupAppConfiguration,
             this.ConfigureServices,
             this.ConfigureApplication);
+
+        return Task.CompletedTask;
     }
 
     /// <inheritdoc />
-    public void Dispose()
+    public Task DisposeAsync()
     {
-        // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-        this.Dispose(disposing: true);
-        GC.SuppressFinalize(this);
+        this.testHost?.Dispose();
+
+        return Task.CompletedTask;
     }
 
     /// <summary>
@@ -115,24 +113,5 @@ public abstract class HostedApplicationTests : IClassFixture<TestHost>, IDisposa
     protected FakeLogCollector GetLoggingSink()
     {
         return this.testHost.GetLoggingSink();
-    }
-
-    /// <summary>
-    /// Dispose disposal resources
-    /// </summary>
-    /// <param name="disposing">Whether disposing</param>
-    protected virtual void Dispose(bool disposing)
-    {
-        if (this.disposedValue)
-        {
-            return;
-        }
-
-        if (disposing)
-        {
-            this.testHost.Dispose();
-        }
-
-        this.disposedValue = true;
     }
 }
